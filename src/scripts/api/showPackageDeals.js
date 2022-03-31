@@ -1,15 +1,15 @@
-const productsdiv = document.getElementsByClassName("packageDeals")[0]
+const packageDiv = document.getElementsByClassName("packageDeals")[0]
 
-function pList(products) {
-    products.forEach(function (product) {
+function pDealsList(packages) {
+    packages.forEach(function (product) {
         const output = `<article>
-        <h1>Name: ${product.name}</h1>
-        <h2>id: ${product.id} </h2>
-        <p>Brand: ${product.brand}</p>
-        <p>description: ${product.desc}</p>
-        <p>price: ${product.price}</p>
+        <h1>Name: ${packages.name}</h1>
+        <h2>id: ${packages.id} </h2>
+        <p>Brand: ${packages.brand}</p>
+        <p>description: ${packages.desc}</p>
+        <p>price: ${packages.price}</p>
         </article>`
 
-        productsdiv.innerHTML += output;
+        packageDiv.innerHTML += output;
     })
 }
