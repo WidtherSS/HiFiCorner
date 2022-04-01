@@ -13,8 +13,8 @@ async function getAllPackages() {
             return response.json()
         })
         .then(function (data) {
-            console.log(data);
-            pList(data);
+            
+            pDealsList(data);
 
         })
 }

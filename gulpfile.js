@@ -34,6 +34,14 @@ function uglyJSDOM() {
 		.pipe(gulp.dest('build/scripts'))
 		.pipe(connect.reload());
 };
+function packageJSDOM() {
+	return gulp
+		.src('src/scripts/api/*.js')
+		.pipe(concat('packageDOM.js'))
+		.pipe(uglify())
+		.pipe(gulp.dest('build/scripts'))
+		.pipe(connect.reload());
+};
 
 function minifyImg() {
 	return gulp
@@ -77,6 +85,7 @@ function watchScript() {
 		function (cb) {
 			uglyJS()
 			uglyJSDOM()
+			packageJSDOM()
 			cb()
 		}
 	);
@@ -104,7 +113,7 @@ function watchImages() {
 	);
 };
 
-export { uglyCss, uglyJS, uglyJSDOM, minifyImg, minifyHtml, startConnection };
+export { uglyCss, uglyJS, uglyJSDOM, packageJSDOM, minifyImg, minifyHtml, startConnection, };
 
 export const watcher = gulp.parallel(
 	watchStyle,
